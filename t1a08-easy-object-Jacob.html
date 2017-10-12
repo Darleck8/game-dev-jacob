@@ -1,0 +1,35 @@
+<script>
+function myOb(x){
+this.myX=x*5;
+this.myFun=function(){
+document.getElementById('myDiv').innerHTML=
+'The Property<b> this.myX</b>=' + this.myX + ', but the passed variable<b> x</b>='+ x
+ }
+}
+
+</script>
+<input type=button value=click onClick="{
+myObject=new myOb(4)
+myObject.myFun()
+}">
+<div id="myDiv">..</div>
+
+
+
+
+<script>
+function myOb2(y){
+this.myY=y*7;
+this.myFun=function(){
+document.getElementById('myDiv2').innerHTML=
+'The Property<b> this.myY</b>=' + this.myY + ', but the passed variable<b> y</b>='+ y
+ }
+}
+</script>
+<input type=button value=click onClick="{
+myObject=new myOb2(7)
+myObject.myFun()
+}">
+<div id="myDiv2">..</div>
+
+

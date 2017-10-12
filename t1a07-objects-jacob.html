@@ -11,7 +11,7 @@ this.myShowInfo = function(){
 </script>
 
 <input type=button value="Set Fred" onClick="{
-myFred = new myStudent(20, 'fred','https://www.google.ca/search?q=trump&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi2y7-kqsPWAhUI7mMKHSyDAR4Q_AUICygC&biw=1280&bih=918#imgrc=w_4dy7i2cyMUoM:')
+myFred = new myStudent(20, 'fred','http')
 }">
 <input type=button value="Show Fred" onClick="{
 myFred.myShowInfo()
@@ -21,37 +21,3 @@ myMary= new myStudent(18, 'Mary', 'http')
 myMary.myShowInfo()
 }">
 <div id='myDiv1'>..</div>
-
-
-
-
-
-<script>
-
-function myAnimal(x){
-        
-
-   this.myAge = x;
-        
-
-   this.myOut = function(){
-            
-
-       document.getElementById('myDiv01').innerHTML = 'The animal\'s age is ' + this.myAge
-  }
-}
-</script>
-
-
-Age: <input type=text value=8 id="myText01">
-
-<input type=button value=click onclick="{
-
-    
-   myLogan = new myAnimal(document.getElementById('myText01').value)
-
-   myLogan.myOut()
-}">
-
-
-<div id="myDiv01">...</div>
