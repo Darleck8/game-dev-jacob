@@ -1,0 +1,303 @@
+
+<body onkeydown="{
+       document.getElementById('myDiv01')
+.innerHTML =  
+                'onkeydown event sent the letter '+String.fromCharCode(event.keyCode)
+  }">
+
+<h2 align=center>Events by Jacob</h1>
+<ol>
+
+<li> type a key
+
+<li><input type=button value="onClick" onclick="{
+
+    
+    document.getElementById('myDiv01')
+.innerHTML =  'onClick event activated'
+  
+}">
+
+<li><input type=button value="onMouseOver" onMouseOver="{
+
+    
+    document.getElementById('myDiv01')
+.innerHTML =  'onMouseOver event activated'
+  
+}">
+
+
+
+
+
+<div id="myDiv01">...</div>
+
+<html>
+<body>
+<form action="" method="get">
+ 4. Name: <input type="text" id="myInput" oninvalid="alert('You must fill out the form!');" name="fname" required>
+  <input type="submit" value="Submit">
+</form>
+
+<p>If you click submit, without filling out the text field,
+an alert message will occur.</p>
+</body>
+</html>
+
+
+
+    
+
+
+
+<html>
+<body>
+
+<p>5. Enter any key in the input to find out if the ALT key was pressed or not.</p>
+
+<input type="text" onkeydown="isKeyPressed(event)">
+
+<p id="myP3"></p>
+
+<script>
+function isKeyPressed(event) {
+    var x = document.getElementById("myP3");
+    if (event.altKey) {
+        x.innerHTML = "The ALT key was pressed!";
+    } else {
+        x.innerHTML = "The ALT key was NOT pressed!";
+    }
+}
+</script>
+
+
+<p ondblclick="myFunction1()"> 6. Double-click me.</p>
+
+<p id="dbl">..</p>
+
+<script>
+function myFunction1() {
+    document.getElementById("dbl").innerHTML = "You double clicked it?!";
+}
+</script>
+
+
+
+
+
+<br><br>
+
+
+7. <input type="text" oncopy="myFunction7()" value="Try to copy this text">
+
+<p id="copyText"></p>
+
+<script>
+function myFunction7() {
+    document.getElementById("copyText").innerHTML = "You copied text!"
+}
+</script>
+
+
+
+<p>8. Write something in the text field.</p>
+
+<input type="text" id="myInput8" oninput="myFunction8()">
+
+<p id="myP8"></p>
+
+<script>
+function myFunction8() {
+    var x = document.getElementById("myInput8").value;
+    document.getElementById("myP8").innerHTML = "You wrote: " + x;
+}
+</script>
+
+
+
+9. Select some of the text: <input type="text" value="Select me!" onselect="myFunction9()">
+
+<script>
+function myFunction9() {
+    alert("You selected some text!");
+}
+</script>
+
+
+<br><br>
+10. Enter your name: <input type="text" id="fname" onblur="myFunction10()">
+
+<p>When you leave the input field, the input text to changes to upper case.</p>
+
+<script>
+function myFunction10() {
+    var x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+}
+</script>
+
+
+
+<p>11. Select a new car from the list.</p>
+
+<select id="mySelect" onchange="myFunction11()">
+  <option value="Audi">Audi
+  <option value="BMW">BMW
+  <option value="Mercedes">Mercedes
+  <option value="Saab">Saab
+</select>
+
+<p>When you select a car it outputs the value of the selected car.</p>
+
+<p id="myP11"></p>
+
+<script>
+function myFunction11() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("myP11").innerHTML = "You selected: " + x;
+}
+</script>
+
+
+<head>
+<style>
+div {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<p>12. Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
+
+<div onmousemove="myFunction12(event)" onmouseout="clearCoor()"></div>
+
+
+
+<p>When the mouse is moved over the div,  the horizontal and vertical coordinates of your mouse pointer is displayed.</p>
+
+<p id="myCord"></p>
+
+<script>
+function myFunction12(e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    var coor = "Coordinates: (" + x + "," + y + ")";
+    document.getElementById("myCord").innerHTML = coor;
+}
+
+function clearCoor() {
+    document.getElementById("myCord").innerHTML = "";
+}
+</script>
+
+
+
+
+
+
+
+<p>13. The image changes size when you mouse over it.</p>
+<img onmouseover="bigImg(this)" onmouseout="normalImg(this)" border="0" src="http://clipart.info/images/ccovers/1495816049trump-smilling-face-smile-png-transparent.png" alt="Smiley" width="32" height="32">
+
+
+
+
+<script>
+function bigImg(x) {
+    x.style.height = "64px";
+    x.style.width = "64px";
+}
+
+function normalImg(x) {
+    x.style.height = "32px";
+    x.style.width = "32px";
+}
+</script>
+
+
+<br><br>
+
+
+14.<input type="text" onpaste="myFunction14()" value=" Try to paste something in here" size="40">
+
+<p id="myP14"></p>
+
+<script>
+function myFunction14() {
+    document.getElementById("myP14").innerHTML = "You pasted text!";
+}
+</script>
+
+
+
+15. Enter your name: <input type="text" onfocusin="myFunction15(this)">
+
+<p> Function makes the background-color.</p>
+
+<script>
+function myFunction15(x) {
+    x.style.background = "yellow";
+}
+</script>
+
+
+<p onclick="myFunction16(event)">16. Click this paragraph to get the number of milliseconds since midnight of January 1, 1970.</p>
+
+<p>Timestamp: <span id="myP16"></span></p>
+
+<script>
+function myFunction16(event) {
+    var n = event.timeStamp;
+    document.getElementById("myP16").innerHTML = n;
+}
+</script>
+
+
+<br>
+
+
+<input type="text" onpaste="myFunction17()" value="17. Try to paste something in here" size="40">
+
+<p id="my17"></p>
+
+<script>
+function myFunction17() {
+    document.getElementById("my17").innerHTML = "You pasted text!";
+}
+</script>
+
+
+
+<style>
+#myDIV18 {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<br><p>18.A function is triggered when you roll the mouse wheel over div. The function sets the font-size of div to 35 pixels.</p>
+
+
+<div id="myDIV18">18. This example uses the addEventListener() method to attach a "wheel" event!</div>
+
+
+
+<script>
+document.getElementById("myDIV18").addEventListener("wheel", myFunction18);
+
+function myFunction18() {
+    this.style.fontSize = "35px";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
