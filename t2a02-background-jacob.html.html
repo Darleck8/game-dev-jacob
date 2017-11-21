@@ -1,0 +1,36 @@
+<body id="myBody"  style="background-image: url('images.png'); background-size: 1500px 1000px; background-repeat :  repeat-x;  "
+ onkeydown="{
+if(String.fromCharCode(event.keyCode)=='D'){
+document.getElementById('myA').style.left=parseInt(document.getElementById('myA').style.left)+20+'px'
+}
+if(String.fromCharCode(event.keyCode)=='S'){
+document.getElementById('myA').style.top=parseInt(document.getElementById('myA').style.top)+20+'px'
+}
+if(String.fromCharCode(event.keyCode)=='W'){
+document.getElementById('myA').style.top=parseInt(document.getElementById('myA').style.top)-20+'px'
+}
+if(String.fromCharCode(event.keyCode)=='A'){
+document.getElementById('myA').style.left=parseInt(document.getElementById('myA').style.left)-20+'px'
+}
+}">
+<input type=button value="Background Go" onclick="{
+       myX = 0
+       myY = 0
+      
+  myCounter1 = setInterval(function(){   
+             myX += -4;
+ 
+             document.getElementById('myBody').style.backgroundPosition = myX + 'px '+ myY+'px';
+  
+      }, 30);    // every 30 milliseconds
+
+}">
+
+
+<input type=button value="Background Stop" onclick="{
+   clearInterval( myCounter1)
+   alert('Background stopped at position ' +document.getElementById('myBody').style.backgroundPosition)
+
+}">
+<img  id="myA"  src="http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif"  style="position:absolute; width:80px; height:80px; left:200px; top:400px">  
+</body>
