@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+#box{
+width:500px;
+height:20;
+postion: absolute; top:500px;left:; }
+#Animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+border-radius: 50%;
+}
+</style>
+<body>
+
+<p>
+<button onclick="{
+myX = 200
+myY = 50
+  myCounter1 = setInterval(function(){   
+
+    	myX += 3
+ 	myY += 3
+   document.getElementById('Animate').style.left= myX +'px'
+   document.getElementById('Animate').style.top= myY +'px'  
+  
+  }, 30); 
+
+     if (parseInt(document.getElementById('Animate')
+.style.top) >= 300){document.getElementById('Animate')
+.style.top = '50px'  } 
+
+
+}">Click Me</button> 
+</p>
+
+<div id ="Animate"></div>
+
+</body>
+</html>
+
