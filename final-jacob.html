@@ -1,94 +1,161 @@
 <html>
-<head>
-<title>Pong Game</title>
-</head>
-<body style="background-color: black" onkeydown="{
-if(String.fromCharCode(event.keyCode)=='W'){
-document.getElementById('p1').style.top=parseInt(document.getElementById('p1').style.top)-20+'px'
-}
-if(String.fromCharCode(event.keyCode)=='S'){
-document.getElementById('p1').style.top=parseInt(document.getElementById('p1').style.top)+20+'px'
-}
-if (myCollide('p1', 'myL')  == true) {
-var x = 100
-document.getElementById('p1').style.top = x  + 'px'
-}
-if (myCollide2('p1' , 'ml')==true){
-var x = 650
-document.getElementById('p1').style.top = x  + 'px'
-}
-}">
+	<head>
+	<title>Pong Game</title>
+	</head>
+	<body style="background-color: black" onkeydown="{
+	
+		if(String.fromCharCode(event.keyCode)=='U'){
+	document.getElementById('p1').style.top=parseInt(document.getElementById('p1').style.top)-20+'px'
+	}
+	
+		if(String.fromCharCode(event.keyCode)=='J'){
+	document.getElementById('p1').style.top=parseInt(document.getElementById('p1').style.top)+20+'px'
+	}
+		if(String.fromCharCode(event.keyCode)=='W'){
+	document.getElementById('p2').style.top=parseInt(document.getElementById('p2').style.top)-20+'px'
+	}
+	
+		if(String.fromCharCode(event.keyCode)=='S'){
+	document.getElementById('p2').style.top=parseInt(document.getElementById('p2').style.top)+20+'px'
+	}
 
-<h2 class="h2">Pong</h2>
+		if (myCollide('p1', 'myL')  == true) {
+	var x = 100
+	document.getElementById('p1').style.top = x  + 'px'
+	}
 
-<input type="button" value="Start" style="position:absolute; top:50px; left:50px;" onClick="{
-myX = 600
-myY = 110
-  myCounter1 = setInterval(function(){   
+		if (myCollide('p1' , 'ml')==true){
+	var x = 650
+	document.getElementById('p1').style.top = x  + 'px'
+	}
+		
+		if (myCollide('p2', 'myL')  == true) {
+	var x = 100
+	document.getElementById('p2').style.top = x  + 'px'
+	}
 
-    	myX += 3
- 	myY += 3
-   document.getElementById('myC').style.left= myX +'px'
-   document.getElementById('myC').style.top= myY +'px'  
+		if (myCollide('p2' , 'ml')==true){
+	var x = 650
+	document.getElementById('p2').style.top = x  + 'px'
+	}
 
-      }, 30);   
-}">
-
-<div id="myC"></div>
-
-<script>
-function myCollide(p1, myL){
-   left1   = parseInt(document.getElementById(p1).style.left)
-   right1  = left1 + parseInt(document.getElementById(p1).style.width)
-   top1    = parseInt(document.getElementById(p1).style.top)   
-   bottom1 = top1   + parseInt(document.getElementById(p1).style.height)
-
-   left2   = parseInt(document.getElementById(myL).style.left)
-   right2  = left2 + parseInt(document.getElementById(myL).style.width)
-   top2    = parseInt(document.getElementById(myL).style.top)   
-   bottom2 = top2   + parseInt(document.getElementById(myL).style.height)
-   if ((right1  >=  left2  ) && (bottom1 >=  top2   ) && (left1   <=  right2 ) && (top1    <=  bottom2) ){
-       return true
-   }
-}
-function myCollide2(p1, ml){
-   left1   = parseInt(document.getElementById(p1).style.left)
-   right1  = left1 + parseInt(document.getElementById(p1).style.width)
-   top1    = parseInt(document.getElementById(p1).style.top)   
-   bottom1 = top1   + parseInt(document.getElementById(p1).style.height)
-
-   left2   = parseInt(document.getElementById(ml).style.left)
-   right2  = left2 + parseInt(document.getElementById(ml).style.width)
-   top2    = parseInt(document.getElementById(ml).style.top)   
-   bottom2 = top2   + parseInt(document.getElementById(ml).style.height)
-   if ((right1  >=  left2  ) && (bottom1 >=  top2   ) && (left1   <=  right2 ) && (top1    <=  bottom2) ){
-       return true
-   }
-}
-</script>
+	}">
 
 
+		<h2 class="h2">Pong</h2>
 
-<style>
-.h2{
-text-align:center;
-color:white;
-font-size:300%;
-}
-#myC {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  background-color: red;
-border-radius: 50%;
-}
-</style>
+		<h3 id="p2score">
+		0
+		</h3>
+		
+		<h3 id="p1score">
+		0
+		</h3>
+			
+		<input type="button" value="Start" style="position:absolute; top:30px; left:30px;" onClick="{
 
-<img id="myL" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:1300px; height:5px; left:0px; top:100px">
-<img id="ml" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:1300px; height:5px; left:0px; top:850px">
+ 	
+	 	myX=300
+		myY=100
+		
+		myStuffY = 1
+		myStuffX = 1
+		
+		myCounter1 = setInterval(function(){   
+    		myX += 5 * myStuffX
+    		myY += 5 * myStuffY
 
-<img src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:20px; height:200px; left:100px; top:400px">
-<img id="p1" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:20px; height:200px; left:1100px; top:400px">
+   		document.getElementById('myC').style.left= myX +'px'
+    		document.getElementById('myC').style.top= myY +'px'  
 
-</body>
+	    		if (parseInt(document.getElementById('myC').style.top) == 800 ){  
+        	myStuffY *= -1
+   		} 
+	
+    			if ( myCollide('p1' , 'myC')==true){  	
+       		myStuffX *= -1
+   		} 
+	
+			if (parseInt(document.getElementById('myC').style.top) == 100 ){  
+        	myStuffY *= -1
+   		 }            
+		
+			if (myCollide('p2' , 'myC')==true){  
+        	myStuffX *= -1
+   		}
+	
+			if (parseInt(document.getElementById('myC').style.left) == 1130){  
+   		
+		document.getElementById('p2score').innerHTML = parseInt(document.getElementById('p2score').innerHTML) + 1;
+		
+		}   
+			if (parseInt(document.getElementById('myC').style.left) == 90){  
+   		
+		document.getElementById('p1score').innerHTML = parseInt(document.getElementById('p1score').innerHTML) + 1;
+		
+		} 
+
+
+		}, 30);   
+      	       	}">
+	
+		<script>
+			function myCollide(p1, myL){
+   			left1   = parseInt(document.getElementById(p1).style.left)
+   			right1  = left1 + parseInt(document.getElementById(p1).style.width)
+   			top1    = parseInt(document.getElementById(p1).style.top)   
+   			bottom1 = top1   + parseInt(document.getElementById(p1).style.height)
+
+   			left2   = parseInt(document.getElementById(myL).style.left)
+		   	right2  = left2 + parseInt(document.getElementById(myL).style.width)
+			top2    = parseInt(document.getElementById(myL).style.top)   
+			bottom2 = top2   + parseInt(document.getElementById(myL).style.height)
+  			if ((right1  >=  left2  ) && (bottom1 >=  top2   ) && (left1   <=  right2 ) && (top1    <=  bottom2) ){
+   			    return true
+   			}
+		}
+		</script>
+
+	<style>
+	.h2{
+		text-align:center;
+		color:white;
+		font-size:300%;
+	}
+
+	#myC {
+		border-radius: 50%;
+	}
+
+	#p2score{
+		color:white;
+		position:absolute;
+		left:100px;
+		top:0px;
+		font-size:50px;
+	}
+	#p1score{
+		color:white;
+		position:absolute;
+		left:1100px;
+		top:0px;
+		font-size:50px;
+	}
+	
+	</style>
+
+		
+
+		<img id="myL" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:1300px; height:5px; left:0px; top:100px">
+		<img id="ml" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:1300px; height:5px; left:0px; top:850px">
+
+
+		<img id="p2" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:20px; height:200px; left:100px; top:400px">
+		<img id="p1" src="https://www.ledr.com/colours/white.jpg" style="position:absolute; width:20px; height:200px; left:1100px; top:400px">
+
+	
+		<img id="myC" src="https://static1.squarespace.com/static/5832840a2994ca3ef53e0dff/t/58f6c4bc197aea4e2014c2e3/1492567231118/red.jpg?format=2500w" style="position:absolute; width:50px; height:50px; left:300px; top:100px">
+		
+
+		</body>
 </html>
