@@ -61,6 +61,7 @@
 		myStuffY = 1
 		myStuffX = 1
 		
+		clearInterval(myCounter1)
 		myCounter1 = setInterval(function(){   
 		myX += 10 * myStuffX
     		myY += 10 * myStuffY
@@ -68,11 +69,7 @@
    		document.getElementById('myC').style.left= myX +'px'
     		document.getElementById('myC').style.top= myY +'px'  
 
-	    		
-
-		<!------------------------- BORDERS FOR BALL --------------->
-
-			if (parseInt(document.getElementById('myC').style.top) == 800 ){  
+	    		if (parseInt(document.getElementById('myC').style.top) == 800 ){  
         	myStuffY *= -1
    		} 
 	
@@ -88,36 +85,20 @@
         	myStuffX *= -1
    		}
 	
-
-		<!------------------------------- SCORE BOARD STATEMENTS---------------->
-
-
 			if (parseInt(document.getElementById('myC').style.left) >= 1130){  
    		
-		document.getElementById('p2score').innerHTML = parseInt(document.getElementById('p2score').innerHTML) + 1;
+		      document.getElementById('p2score').innerHTML = parseInt(document.getElementById('p2score').innerHTML) + 1;
 		
-                clearInterval(myCounter1)
+                  clearInterval(myCounter1)
 	
 		}   
 			if (parseInt(document.getElementById('myC').style.left) == 90){  
    		
 		document.getElementById('p1score').innerHTML = parseInt(document.getElementById('p1score').innerHTML) + 1;
-				
-		clearInterval(myCounter1)
+		   clearInterval(myCounter1)
 		} 
-					
-			
 
 
-			<!----------------  GAMEOVER STATEMENTS --->
-			
-				if(parseInt(document.getElementById('p2score').innerHTML) == 5){
-		   location='file:///H:/Documents/Game%20Dev/final/final-end.html' ; 
-
-		}
-				if(parseInt(document.getElementById('p1score').innerHTML) == 5){
-		   location='file:///H:/Documents/Game%20Dev/final/final-end.html' ; 
-		}
 		}, 30);   
       	       	}">
 	
