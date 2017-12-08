@@ -2,8 +2,19 @@
 	<head>
 	<title>Pong Game</title>
 	</head>
+
+	<script>
+		myCounter1 = setInterval(function(){ }, 30);    
+	</script>
+
+
+
+
 	<body style="background-color: black" onkeydown="{
 	
+		<!---------------- MOVEMENT STATEMENTS ---------------->
+		
+
 		if(String.fromCharCode(event.keyCode)=='U'){
 	document.getElementById('p1').style.top=parseInt(document.getElementById('p1').style.top)-20+'px'
 	}
@@ -18,6 +29,9 @@
 		if(String.fromCharCode(event.keyCode)=='S'){
 	document.getElementById('p2').style.top=parseInt(document.getElementById('p2').style.top)+20+'px'
 	}
+	
+
+	<!---------------- PADDLE RESTRICTIONS ---------------->
 
 		if (myCollide('p1', 'myL')  == true) {
 	var x = 100
@@ -51,16 +65,19 @@
 		<h3 id="p1score">
 		0
 		</h3>
-			
-		<input type="button" value="Start" style="position:absolute; top:30px; left:30px;" onClick="{
 
- 	
+
+		
+		<input type="button" id="myStart" value="Start" style="position:absolute; top:30px; left:30px;" onClick="{
+                
 	 	myX=300
 		myY=100
 		
 		myStuffY = 1
 		myStuffX = 1
-		
+
+		clearInterval(myCounter1)
+
 		myCounter1 = setInterval(function(){   
 		myX += 10 * myStuffX
     		myY += 10 * myStuffY
@@ -96,14 +113,15 @@
    		
 		document.getElementById('p2score').innerHTML = parseInt(document.getElementById('p2score').innerHTML) + 1;
 		
-                clearInterval(myCounter1)
+         
+                document.getElementById('myStart').click()
 	
 		}   
 			if (parseInt(document.getElementById('myC').style.left) == 90){  
    		
 		document.getElementById('p1score').innerHTML = parseInt(document.getElementById('p1score').innerHTML) + 1;
 				
-		clearInterval(myCounter1)
+		document.getElementById('myStart').click()
 		} 
 					
 			
